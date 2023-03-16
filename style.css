@@ -1,0 +1,249 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 767px) {
+  table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 6px;
+  }
+}
+form {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+* {
+  font-size: 16px;
+}
+
+
+
+}
+#myTable 
+{
+			display: none;
+			position: absolute;
+			top: -5;
+			right: 0;
+			left: 6;
+}
+form {
+  max-width: 1000px;
+  margin: 0 auto;
+  float: left;
+  width: 95%;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.popup {
+	position: fixed;
+	width: 70%;
+  	height: 70%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	display: none;
+}
+
+.popup-content {
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	position: relative;
+}
+
+.popup-content .close {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.form-row {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.form-row:last-child {
+  margin-right: 0;
+}
+.myTable2 {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.myTable2 th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.myTable2 th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#.myTable2 input[type="number"] {
+  width: 80px;
+  padding: 6px;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+.myTable2 input[type="number"]:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.myTable2 tfoot th {
+  text-align: right;
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.myTable2 tfoot td {
+  border-top: 2px solid #ddd;
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  padding: 20px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+

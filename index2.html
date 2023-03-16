@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>create invoice </title>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    #myList{
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <h1>Flat</h1>
+  
+  <ul id="myList1">
+    <li>Protect customer's and neighbors property</li>
+    <li>Remove obsolete material at the completion of work</li>
+    <li>inspect existing bords</li>
+  </ul>
+  <form id="myForm">
+  <fieldset>
+    <legend>Create Quote</legend>
+    
+
+    <label for="Choose-service">Choose service:</label>
+  <select id="Choose-service" onchange="displaySubDropdown()">
+    <option value="">Select an option</option>
+    <option value="New Installation">New Installation</option>
+    <option value="Upgrade">Upgrade</option>
+    <option value="Repair">Repair</option>
+    
+  </select>
+
+    <label for="main-dropdown">ISO installation</label>
+    <label for="sub-dropdown-list">2 ply system torched down</label>
+    <label for="sub-dropdown-list">Install overlay boards</label>
+    <label for="sub-dropdown-list">install SBS modified member</label>
+  
+    <label for="myDropdown">Install TCP/EPDM/TAR:</label>
+    <select id="myDropdown" name="myDropdown">
+      <option value="">none</option>
+      <option value="option1">TCP</option>
+      <option value="option2">EPDM</option>
+      <option value="option3">TAR</option>
+    
+
+      
+       <label for="number-input">Aluminium:</label>
+  <input type="number" id="number-input" name="number-input" min="0" max="" placeholder="Soffit">
+  <input type="number" id="number-input" name="number-input" min="0" max="" placeholder="Fascia">
+  <input type="number" id="number-input" name="number-input" min="0" max="" placeholder="Eaves">
+  <input type="number" id="number-input" name="number-input" min="0" max="" placeholder="Down pipes">
+  <input type="number" id="number-input" name="number-input" min="0" max="" placeholder="Leafs guard">
+  <label for="textarea">Install liquid rubber roofing</label>
+ 
+   <button type="button" onclick="openPopup()">NEXT</button>
+
+
+   <div id="popup" class="popup" style="display:none;">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h2>Popup Form</h2>
+             <table id="myTable2">&times;
+          <thead>
+            <tr>
+              <th>Placeholder</th>
+              <th>Unit Cost</th>
+              <th>Quantity</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="placeholder[]" /></td>
+              <td><input type="number" name="unit_cost[]" min="0" /></td>
+              <td><input type="number" name="quantity[]" min="0" /></td>
+              <td><span class="cost"></span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Total:</td>
+              <td><span id="totalCost"></span></td>
+            </tr>
+          </tfoot>
+        </table>
+        <button id="addRow">Add Row</button>
+        <button id="submitBtn" onclick="submitForm()">Submit</button>
+
+
+
+    <script>
+      function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+      // Get the table element and the add row button
+// Get the table element and the add row button
+const table = document.getElementById('myTable2');
+const addRowBtn = document.getElementById('addRow');
+
+// Add a click event listener to the add row button
+addRowBtn.addEventListener('click', (event) => {
+  event.preventDefault(); // prevent default behavior of the button
+  // Clone the first row in the table
+  const newRow = table.rows[1].cloneNode(true);
+
+  // Clear the input values in the cloned row
+  newRow.querySelectorAll('input').forEach(input => input.value = '');
+
+  // Append the cloned row to the table
+  table.tBodies[0].appendChild(newRow);
+});
+
+// Add an input event listener to the table body
+table.tBodies[0].addEventListener('input', event => {
+  const target = event.target;
+  if (target.nodeName === 'INPUT') {
+    const row = target.parentNode.parentNode;
+    const unitCost = parseFloat(row.querySelector('input[name="unit_cost[]"]').value) || 0;
+    const quantity = parseFloat(row.querySelector('input[name="quantity[]"]').value) || 0;
+    const cost = unitCost * quantity;
+    row.querySelector('.cost').textContent = cost.toFixed(2);
+    updateTotalCost();
+  }
+});
+
+// Function to update the total cost
+function updateTotalCost() {
+  const costs = Array.from(document.querySelectorAll('.cost'))
+    .map(cost => parseFloat(cost.textContent))
+    .filter(cost => !isNaN(cost));
+  const totalCost = costs.reduce((sum, cost) => sum + cost, 0);
+  document.getElementById('totalCost').textContent = totalCost.toFixed(2);
+}
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+function submitForm() {
+  // Get the table data
+  const tableData = [];
+  const rows = document.querySelectorAll('#myTable2 tbody tr');
+  rows.forEach(row => {
+    const rowData = [];
+    row.querySelectorAll('input').forEach(input => {
+      rowData.push(input.value);
+    });
+    tableData.push(rowData);
+  });
+
+  // Store the table data in localStorage
+  localStorage.setItem('tableData', JSON.stringify(tableData));
+
+  // Redirect to final.html
+  window.location.href = 'final.html';
+}
+
+
+
+    </script>
+  </div>
+</div>
+   </fieldset>
+</form>
+</body>
+</html>
